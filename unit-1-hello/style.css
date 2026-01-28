@@ -4,11 +4,11 @@ body {
 	background-repeat: repeat;
 	margin: 0;
 	padding: 0;
-	background-image: url("../assets/contentbg.jpg");
+	background-image: url("assets/contentbg.jpg");
 }
 
 .top {
-	background-image: url("../assets/backsplash.jpg");
+	background-image: url("assets/backsplash.jpg");
 	position: sticky;
 	top: 0;
 	overflow: hidden;
@@ -53,7 +53,7 @@ body {
 	vertical-align: center;
 	left: 4%;
 	margin-right: 75%;
-	background-image: url("../assets/digibg.jpg");
+	background-image: url("assets/digibg.jpg");
 	background-color: white;
 	color: whitesmoke;
 	font-size: 200%;
@@ -76,7 +76,7 @@ body {
 }
 
 .left-bar {
-	background-image: url("../assets/backsplash.jpg");
+	background-image: url("assets/backsplash.jpg");
 	position: fixed;
 	background-color: white;
 	width: 4%;
@@ -86,7 +86,7 @@ body {
 }
 
 .right-bar {
-	background-image: url("../assets/backsplash.jpg");
+	background-image: url("assets/backsplash.jpg");
 	position: fixed;
 	background-color: white;
 	width: 5%;
