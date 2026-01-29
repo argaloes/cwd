@@ -15,7 +15,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	background-color: white;
-	height: 80px;
+	height: 100%;
+	max-height: 80px;
 	z-index: 1;
 }
 
@@ -49,7 +50,6 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	vertical-align: center;
 	left: 4%;
 	margin-right: 75%;
 	background-image: url("../assets/digibg.jpg");
@@ -63,7 +63,6 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	vertical-align: center;
 	top: 15%;
 	left: 50%;
 	color: whitesmoke;
@@ -73,9 +72,9 @@ body {
 	font-size: 150%;
 }
 
-
 .std-sprite {
-	width: 15%;
+	width: 100%;
+	max-width: 15%;
 }
 
 .std-sprite2 {
