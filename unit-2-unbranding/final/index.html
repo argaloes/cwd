@@ -3,17 +3,36 @@
 <head>
 
 	<!--
+
 	About this page:
 
+	For my unbranding project, I chose to unbrand Walmart. I created a self-referential parody site similar to its current landing page in an attempt to convey a protest against Walmart's labor practices and corporate greed.
+
+	At first, it appears as a regular, if not unremarkable, landing page. However, once the user clicks on the Walmart logo as suggested in the search box, the tone shifts darker as it dons a red aesthetic. I tried to give it a multiple imaging appeal in an artistic sense, and added a slew of interactivity in it.
+
+	The rights of the images used in the regular page belong to their respective owners, I simply took images from the website for that.
+
+	The images used in the blood mode are open for usage.
+
+	Personally, the most difficult part of this project was proper, consistent alignment styling, and relearning how to use svg's.
+	
+	The design aspect was really enjoyable, and I enjoyed brainstorming how to make the blood mode more engaging.
+
+	I also enjoyed learning javascript as well!
+
+
 	-->
+
 	<title>Unbranding</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="assets/walmart-logo.svg" type="image/svg+xml">
 
 	<style>
 		body {
 			font-family: Arial, sans-serif;
 			margin: 0;
 			padding: 0;
-			background-color: #f0f0f0;
+			background-color: #ffffff;
 		}
 		
 		nav {
@@ -22,25 +41,64 @@
 			position: sticky;
 			top: 0;
 			z-index: 1;
+			padding-top: 0.5rem;
+			padding-bottom: 3rem;
+		}
+
+		img:hover {
+			scale: 1.05;
+			transition: scale 0.3s ease;
 		}
 
 		.nav-spacer {
-			display: flex;
-			flex-direction: row;
+    		display: flex;
+    		align-items: center;
+    		gap: 1rem;
 		}
 
 		.nav-icon {
 			width: 3rem;
 			height: 4rem;
 			vertical-align: bottom;
+			scale: 0.5;
+		}
+
+		.nav-icon-burger {
+			width: 3rem;
+			height: 4rem;
+			vertical-align: bottom;
+			scale: 0.5;
+			filter: invert(100%);
+		}
+
+		.nav-icon-car {
+			width: 3rem;
+			height: 4rem;
+			vertical-align: bottom;
+			scale: 0.5;
+		}
+
+		.nav-icon-car:hover {
+			filter: invert(100%);
+		}
+
+		.nav-icon-search {
+    		position: absolute;
+    		right: 1rem;
+    		top: 50%;
+    		transform: translateY(-50%);
+    		width: 2rem;
+    		height: 2rem;
+			border-radius: 25px;
+			stroke: white;
 		}
 
 		.nav-button {
-			background-color: #000000;
-			width: 6rem;
-			height: 2rem;
+			width: auto;
+			min-height: 2rem;
 			vertical-align: bottom;
 			margin-top: 1rem;
+			margin-bottom: auto;
 			line-height: 2rem;
 			color: white;
 			text-align: center;
@@ -48,30 +106,484 @@
 			display: inline-block;
 			border-radius: 10%;
 			margin-left: auto;
-			margin-right: 1rem
+			margin-right: 1rem;
+			white-space: nowrap;
 		}
 
-		.site-container {
-			top: 5rem;
-			display: block;
+		.nav-button-addr {
+			width: auto;
+			min-height: 2rem;
+			vertical-align: bottom;
+			margin-top: 1rem;
+			margin-bottom: auto;
+			line-height: 2rem;
+			color: white;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			border-radius: 10%;
+			margin-left: auto;
+		}
+
+		.search {
 			background-color: #fefefe;
 			width: 100%;
-			max-width: 45%;
-			height: calc(l00vh - 20rem);
+			max-width: 90%;
+			height: 2rem;
+			border-radius: 25px;
+			border: none;
+			padding-left: 0.5rem;
+			font-size: 1rem;
 		}
+
+		.nav-spacer form {
+			position: relative;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			max-width: 80%;
+		}
+
+		.nav-spacer input[type=text] {
+			background-color: #fefefe;
+			width: 100%;
+    		height: 3rem;
+    		border-radius: 25px;
+    		border: none;
+    		padding-left: 1rem;
+    		padding-right: 3rem;
+    		font-size: 1rem;
+		}
+
+		.nav-spacer input[type=text]:focus {
+			border-radius: 0%;
+		}
+
+		.nav-spacer ul {
+			display: flex;
+			width: 100%;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			text-decoration: none;
+			transform: translateY(-0.75rem);
+			
+		}
+
+		.nav-spacer li {
+			display: flex;
+			padding: 0;
+			margin: 0;
+		}
+
+		.nav-spacer li:last-child {
+			margin-left: auto;
+			margin-right: 1rem;
+		}
+
+		.nav-spacer li a {
+			text-decoration: none;
+			color: #f0f0f0;
+			white-space: nowrap;
+		}
+
+		hr {
+			border: none;
+			height: 1px;
+			padding: 0;
+			margin-bottom: 0;
+			background-color: #ffffff;
+		}
+
+		.topic-spacer {
+			display: block;
+			background-color: #E9F1FE;
+			width: 100%;
+			padding: 0;
+			margin-top: 0;
+		}
+
+		.topic-spacer ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			text-decoration: none;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.topic-spacer li {
+			padding: 0;
+			margin: 0;
+			float: left;
+		}
+
+		.topic-spacer li a {
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		.topic-button {
+			width: 6rem;
+			height: 2rem;
+			vertical-align: bottom;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+			line-height: 2rem;
+			background-color: white;
+			color: #000000;
+			text-align: center;
+			text-decoration: none;
+			border-radius: 25px;
+			margin-left: auto;
+			margin-right: 1rem;
+			font-size: smaller;
+			float: left;
+			overflow: hidden;
+		}
+
+		.header {
+			background-color: #D4F0F9;
+			width: 100%;
+			max-width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 1rem;
+			border-radius: 25px;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.header ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			text-decoration: none;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.header li {
+			padding: 0;
+			margin: 0;
+		}
+
+		.header li img {
+			width: clamp(15rem, 100%, 30rem);
+			height: clamp(15rem, 100%, 30rem);
+			scale: 0.75;
+			padding: 0;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+
+		.deals {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			width: 100%;
+			max-width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			overflow: auto;
+			white-space: nowrap;
+		}
+
+		.item-container {
+			display: flex;
+			flex-direction: column;
+			width: clamp(13rem, 100%, 20rem);
+			height: clamp(13rem, 100%, 20rem);
+			padding: 1rem;
+		}
+
+		.item-container h2 {
+			color: #2A8703;
+			margin: 0;
+			padding: 0;
+		}
+
+		.item-container p {
+			margin: 0;
+			padding: 0;
+		}
+
+		.item-button {
+			width: 6rem;
+			height: 2rem;
+			vertical-align: bottom;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+			line-height: 2rem;
+			text-decoration: none;
+			background-color: white;
+			color: #000000;
+			border: 1px solid #000000;
+			text-align: center;
+			border-radius: 25px;
+			font-size: medium;
+			cursor: pointer;
+		}
+
+		.item-button:hover {
+			border: 2px solid #000000;
+		}
+
 
 	</style>
 	
 </head>
 <body>
+	<!--
+	
+	Navigation.
+	
+	-->
 	<nav>
 		<div class="nav-spacer">
-			<img class="nav-icon" style="filter: invert(100%);" src="assets/burger.svg" alt="Burger Icon">
-			<img class="nav-icon" src="assets/walmart-logo.svg" alt="Logo Icon">
-			<a class="nav-button" href="#">Button</a>
+			<svg class="nav-icon-burger" alt="burger" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+				<path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+				<path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+			</svg>
+
+			<svg class="nav-icon" onclick="blood_mode()" alt="logo" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 532.262 600" style="enable-background:new 0 0 532.262 600;" xml:space="preserve">
+			<g>
+				<path style="fill:#FFC220;" d="M375.663,273.363c12.505-2.575,123.146-53.269,133.021-58.97
+					c22.547-13.017,30.271-41.847,17.254-64.393s-41.847-30.271-64.393-17.254c-9.876,5.702-109.099,76.172-117.581,85.715
+					c-9.721,10.937-11.402,26.579-4.211,39.033C346.945,269.949,361.331,276.314,375.663,273.363z"/>
+				<path style="fill:#FFC220;" d="M508.685,385.607c-9.876-5.702-120.516-56.396-133.021-58.97
+					c-14.332-2.951-28.719,3.415-35.909,15.87c-7.191,12.455-5.51,28.097,4.211,39.033c8.482,9.542,107.705,80.013,117.581,85.715
+					c22.546,13.017,51.376,5.292,64.393-17.254S531.231,398.624,508.685,385.607z"/>
+				<path style="fill:#FFC220;" d="M266.131,385.012c-14.382,0-27.088,9.276-31.698,23.164
+					c-4.023,12.117-15.441,133.282-15.441,144.685c0,26.034,21.105,47.139,47.139,47.139c26.034,0,47.139-21.105,47.139-47.139
+					c0-11.403-11.418-132.568-15.441-144.685C293.219,394.288,280.513,385.012,266.131,385.012z"/>
+				<path style="fill:#FFC220;" d="M156.599,326.637c-12.505,2.575-123.146,53.269-133.021,58.97
+					C1.031,398.624-6.694,427.454,6.323,450c13.017,22.546,41.847,30.271,64.393,17.254c9.876-5.702,109.098-76.172,117.58-85.715
+					c9.722-10.937,11.402-26.579,4.211-39.033S170.931,323.686,156.599,326.637z"/>
+				<path style="fill:#FFC220;" d="M70.717,132.746C48.171,119.729,19.341,127.454,6.323,150
+					c-13.017,22.546-5.292,51.376,17.254,64.393c9.876,5.702,120.517,56.396,133.021,58.97c14.332,2.951,28.719-3.415,35.91-15.87
+					c7.191-12.455,5.51-28.096-4.211-39.033C179.815,208.918,80.592,138.447,70.717,132.746z"/>
+				<path style="fill:#FFC220;" d="M266.131,0c-26.035,0-47.139,21.105-47.139,47.139c0,11.403,11.418,132.568,15.441,144.685
+					c4.611,13.888,17.317,23.164,31.698,23.164s27.088-9.276,31.698-23.164c4.023-12.117,15.441-133.282,15.441-144.685
+					C313.27,21.105,292.165,0,266.131,0z"/>
+			</g>
+			</svg>
+
+			<!--
+	
+			Search bar, it helps reset the page. I looked up how to have a placeholder.
+	
+			-->
+			<form action="#" method="get">
+				<input type="text" placeholder="Click Walmart Logo. Enter into this search box to reset." name="search">
+				<button type="submit" style="display: none;"></button>
+				<svg class="nav-icon-search" alt="search" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_15_152)">
+					<rect id="r1" width="24" height="24" fill="#0053E2"/>
+					<circle id="r2" cx="10.5" cy="10.5" r="6.5" stroke="white" stroke-linejoin="round"/>
+					<path d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z" fill="#000000"/>
+					</g>
+					<defs>
+					<clipPath id="clip0_15_152">
+					<rect id="r3"width="24" height="24" fill="#0053E2"/>
+					</clipPath>
+					</defs>
+				</svg>
+			</form>
+		</div>
+		<hr>
+		<div class="nav-spacer">
+			<ul>
+				
+				<li>
+					<svg class="nav-icon-car" alt="car" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8 17H16M8 17C8 18.1046 7.10457 19 6 19C4.89543 19 4 18.1046 4 17M8 17C8 15.8954 7.10457 15 6 15C4.89543 15 4 15.8954 4 17M16 17C16 18.1046 16.8954 19 18 19C19.1046 19 20 18.1046 20 17M16 17C16 15.8954 16.8954 15 18 15C19.1046 15 20 15.8954 20 17M10 5V11M4 11L4.33152 9.01088C4.56901 7.58593 4.68776 6.87345 5.0433 6.3388C5.35671 5.8675 5.79705 5.49447 6.31346 5.26281C6.8993 5 7.6216 5 9.06621 5H12.4311C13.3703 5 13.8399 5 14.2662 5.12945C14.6436 5.24406 14.9946 5.43194 15.2993 5.68236C15.6435 5.96523 15.904 6.35597 16.425 7.13744L19 11M4 17H3.6C3.03995 17 2.75992 17 2.54601 16.891C2.35785 16.7951 2.20487 16.6422 2.10899 16.454C2 16.2401 2 15.9601 2 15.4V14.2C2 13.0799 2 12.5198 2.21799 12.092C2.40973 11.7157 2.71569 11.4097 3.09202 11.218C3.51984 11 4.0799 11 5.2 11H17.2C17.9432 11 18.3148 11 18.6257 11.0492C20.3373 11.3203 21.6797 12.6627 21.9508 14.3743C22 14.6852 22 15.0568 22 15.8C22 15.9858 22 16.0787 21.9877 16.1564C21.9199 16.5843 21.5843 16.9199 21.1564 16.9877C21.0787 17 20.9858 17 20.8 17H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</li>
+				<li><a id="q1" href="#" class="nav-button">Pickup or Delivery?</a></li>
+				<li><a id="q2" href="#" class="nav-button-addr">Stafford, 22556</a></li>
+			</ul>	
 		</div>
 	</nav>
 
-	<h1>Hello, world!</h1>
+	<!--
+	
+	Genre buttons.
+	
+	-->
+	<div class="topic-spacer">
+		<ul>
+			<li><a href="#" class="topic-button">Home</a></li>
+			<li><a href="#" class="topic-button">Shop</a></li>
+			<li><a href="#" class="topic-button">Pharmacy</a></li>
+			<li><a href="#" class="topic-button">Savings</a></li>
+			<li><a href="#" class="topic-button">Health</a></li>
+			<li><a href="#" class="topic-button">Grocery</a></li>
+			<li><a href="#" class="topic-button">Electronics</a></li>
+		</ul>
+	</div>
+
+	<!--
+	
+	Main header, it is currently advertising Pokemon week, so I went with that. Changes in blood mode, that is my personal favorite part of the page.
+	
+	-->
+	
+	<div class="header">
+		<h1 id="h1">It's Pokemon Week!</h1>
+		
+		<ul>
+			<li><img id="t1" src="assets/pokemontcg.webp" alt="TCG"></li>
+			<li><img id="t2" src="assets/megachar.webp" alt="mega"></li>
+			<li><img id="t3" src="assets/pokebril.webp" alt="game"></li>
+		</ul>
+	</div>
+
+	<h2 id="h2" style="margin-left: 2rem;">Flash Deals</h2>
+	<h4 id="h3" style="margin-left: 2rem;">Up to 64% off selected items!</h4>
+
+	<!--
+	
+	Items for sale.
+	
+	-->
+
+	<div class="deals">
+		<div class="item-container">
+			<img id="s1" src="assets/bike.webp" alt="bike">
+			<a class="item-button" href="#">Options</a>
+			<h2 id="p1">Now $161.06</h2>
+			<p>Super Bike</p>
+		</div>
+
+		<div class="item-container">
+			<img id="s2" src="assets/baby.webp" alt="baby">
+			<a class="item-button" href="#">Options</a>
+			<h2 id="p2">Now $30.02</h2>
+			<p>Baby Clothes</p>
+		</div>
+		
+		<div class="item-container">
+			<img id="s3" src="assets/skorts.webp" alt="skorts">
+			<a class="item-button" href="#">Options</a>
+			<h2 id="p3">Now $80.46</h2>
+			<p>Fashion Skorts</p>
+		</div>
+
+		<div class="item-container">
+			<img id="s4" src="assets/laptop.webp" alt="laptop">
+			<a class="item-button" href="#">Options</a>
+			<h2 id="p4">Now $763.99</h2>
+			<p>Laptop</p>
+
+		
+	</div>
+
+	<script>
+
+		/*
+		This function serves as a catch-all for settings that proc once the Walmart logo has been clicked
+		
+		
+		Present are HTML text and CSS edits across the board.
+
+		The applications are varied so that different js functionalities are showcased, such as event listeners, attribute editing, and inner text editing.
+
+		I haven't really used javascript before, so I referenced some tutorials from w3schools to get a better understanding of how I can use it for this project.
+
+		Personally, I found js querying to be really fun!
+		*/
+
+		function blood_mode() {
+			document.body.style.backgroundColor = "#DC143C";
+			document.querySelector("nav").style.backgroundColor = "#950606";
+			document.querySelector(".header").style.backgroundColor = "#950606";
+			document.querySelector(".header").style.borderRadius = "0px";
+
+			document.querySelectorAll("img").forEach(img => {
+				img.addEventListener("mouseenter", function() {
+        			img.style.filter = "invert(100%)";
+    			});
+
+    			img.addEventListener("mouseleave", function() {
+        			img.style.filter = "invert(0%)";
+    			});
+			});
+
+			document.querySelectorAll(".topic-button").forEach(button => {
+				button.style.backgroundColor = "#950606";
+				button.style.color = "white";
+				button.addEventListener("mouseenter", function() {
+					button.style.backgroundColor = "#000000";
+					button.style.color = "#DC143C";
+					button.innerHTML = "Death lingers.";
+				});
+
+				button.addEventListener("mouseleave", function() {
+					button.style.backgroundColor = "#950606";
+					button.style.color = "white";
+				});
+			});
+
+			document.querySelector("#q1").innerText = "Money is heaven, Compensation is hell.";
+			document.querySelector("#q2").innerText = "Lovecraft Country";
+
+			document.querySelector("#r1").setAttribute("fill", "#DC143C");
+			document.querySelector("#r2").setAttribute("stroke", "white");
+			document.querySelector("#r3").setAttribute("fill", "#DC143C");
+
+			document.querySelector("#t1").src = "assets/money.png";
+			document.querySelector("#t2").src = "assets/money.png";
+			document.querySelector("#t3").src = "assets/money.png";
+
+			document.querySelector("#h1").innerText = "STOP THE COUNT";
+			document.querySelector("#h1").style.color = "white";
+
+			document.querySelector("#h2").innerText = "WE REIGN SUPREME";
+			document.querySelector("#h2").style.color = "white";
+
+			document.querySelector("#h3").innerText = "FEED INTO OUR ECOSYSTEM";
+			document.querySelector("#h3").style.color = "white";
+
+			document.querySelector("#p1").innerText = "We";
+			document.querySelector("#p1").style.color = "white";
+			document.querySelector("#s1").src = "assets/protest.webp";
+
+			document.querySelector("#p2").innerText = "Are";
+			document.querySelector("#p2").style.color = "white";
+			document.querySelector("#s2").src = "assets/protest.webp";
+
+			document.querySelector("#p3").innerText = "Suppressing";
+			document.querySelector("#p3").style.color = "white";
+			document.querySelector("#s3").src = "assets/protest.webp";
+
+			document.querySelector("#s3").addEventListener("mouseenter", function() {
+					document.querySelector("#s3").src = "assets/help.jpg";
+				});
+
+				document.querySelector("#s3").addEventListener("mouseleave", function() {
+					document.querySelector("#s3").src = "assets/protest.webp";
+				});
+
+			document.querySelector("#p4").innerText = "Workers";
+			document.querySelector("#p4").style.color = "white";
+			document.querySelector("#s4").src = "assets/protest.webp";
+		}
+
+	</script>
+	
+
 </body>
 </html>
