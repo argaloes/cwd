@@ -7,18 +7,38 @@
 	<!-- 
 	About this page:
 	-->
-	<title>Fake News</title>
+	<title>The Taco Times</title>
+
+	<link rel="icon" type="image/jpg" href="assets/taco.jpg">
 	
   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   	
+	<!-- Fonts used: 
+	 		Title: Island Moments
+			Headers: Inknut Antiqua
+			Para: Barlow Condensed
+	-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Island+Moments&display=swap" rel="stylesheet">
 
 	<style>
 
+		// Orange background
 		body {
 			background-color: #FFECDB;
+		}
+
+		h3 {
+			font-family: "Inknut Antiqua", serif;
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		p {
+			font-family: "Barlow Condensed", sans-serif;
+			font-weight: 300;
+			font-style: normal;
 		}
 
 		.island-moments-regular {
@@ -33,8 +53,12 @@
 			font-weight: 400;
 			font-style: normal;
 			text-align: center;
+			font-size: clamp(2rem, 10vw, 6rem);
+			margin-top: 2%;
+			margin-bottom: 0%;
 		}
 
+		// Yellow backsplash
 		.bg-yel {
 			background-color: #FFF8E9;
 			height: 100vh;
@@ -43,6 +67,35 @@
 			left: 12%;
 			right: 12%;
 			z-index: -1;
+		}
+
+		// Bottom cards
+		.card1 {
+			width: 100%;
+			height: clamp(80px, 15vw, 300px);
+			object-fit: cover;
+		}
+
+
+		// Top right cards
+		.card2 {
+			width: 100%;
+			height: clamp(60px, 8vw, 150px);
+			object-fit: cover;
+		}
+
+		// Top left cards
+		.card3 {
+			width: 100%;
+			height: clamp(100px, 18vw, 300px);
+			object-fit: cover;
+		}
+
+		// Main center card
+		.card4 {
+			width: 100%;
+			height: clamp(150px, 25vw, 400px);
+			object-fit: cover;
 		}
 
 	</style>
@@ -55,7 +108,7 @@
 	<div class="top">
 		<h1>The Taco Times</h1>
 
-		<div class="container text-center">
+		<div class="container">
   		<div class="row">
     		<div class="col">
       			<hr>
@@ -69,6 +122,7 @@
 	
 	
 	<!--
+	Basic copy-paste of row col format; deprecated
 	<div class="container text-center">
   		<div class="row">
     		<div class="col">
@@ -82,161 +136,209 @@
 			</div>
 		</div>
 	</div>
--->
+	-->
 
-	<div class="container text-center">
+	<div class="container">
   		<div class="row">
-    		<div class="col-3">
+
+			<!-- Left Column -->
+    		<div class="col-12 col-md-3">
       			<div class="row">
-					<img src="assets/taco.jpg">
+					<img src="assets/burrito.jpeg" alt="burrito" class="img-fluid card3">
 				</div>
 				<div class="row">
-					Taco
+					<h3 class="mt-2">Burrito SAVED!</h3>
+					<p>Rice performed maneuver to resuscitate Burrito...</p>
+					<p>Barnacle Boyd</p>
 				</div>
 				<hr>
 				<div class="row">
-					<img src="assets/taco.jpg">
+					<img src="assets/burger.jpg" alt="burger" class="img-fluid card3">
 				</div>
 				<div class="row">
-					Taco
+					<h3>That's a Wrap!</h3>
+					<p>King Burger establishes universal base income!?</p>
+					<p>Barnacle Boyd</p>
 				</div>
     		</div>
-			<div class="vr px-0 mx-2"></div>
-    		<div class="col-5">
+
+			<!-- Center Column -->
+			<div class="vr px-0 mx-2 d-none d-md-block"></div>
+    		<div class="col-12 col-md-5">
 				<div class="row">
-					<img src="assets/taco.jpg">
+					<img src="assets/sourguac.jpg" alt="sour cream guacamole" class="img-fluid card4">
 				</div>
-				<div class="row">
-					Taco
+				<div class="row text-center">
+					<h3>It's Official: Sour Cream and Guacamole CAN work it out with each other!</h3>
+					<p>In a joint statement at the most recent United Nachos conference, the two world leaders put aside their differences to announce an end to labor for ripe bananas.</p>
+					<p>"Look, I don't like them kids, but I don't know if they should be working!" Sour Cream stated.</p>
+					<p>"They absolutely shouldn't be working, is there even any ethical question to this???" Guacamole replied.</p>
+					<p>We have reached out to both offices for comment.</p>
+					<p>Barnacle Boyd</p>
 				</div>
 			</div>
-			<div class="col-3">
+
+			<!-- Right Column -->
+			<div class="col-12 col-md-3">
 				<div class="row">
-					<div class="col">
-						Taco
+					<div class="col-12 col-sm-6">
+						<p>Bulgogi sets up shop...</p>
+						<p>Barnable Boyd</p>
 					</div>
-					<div class="col">
-						<img src="assets/taco.jpg">
+					<div class="col-12 col-sm-6">
+						<img src="assets/bulgogi.jpg" alt="bulgogi" class="img-fluid card2">
 					</div>
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col">
-						Taco
+					<div class="col-12 col-sm-6">
+						<p>Will the Monk Fruits pass by?</p>
+						<p>Barnable Boyd</p>
 					</div>
-					<div class="col">
-						<img src="assets/taco.jpg">
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col">
-						Taco
-					</div>
-					<div class="col">
-						<img src="assets/taco.jpg">
+					<div class="col-12 col-sm-6">
+						<img src="assets/monk.jpeg" alt="monk fruit" class="img-fluid card2">
 					</div>
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col">
-						Taco
+					<div class="col-12 col-sm-6">
+						<p>Lettuce commence this...</p>
+						<p>Barnable Boyd</p>
 					</div>
-					<div class="col">
-						<img src="assets/taco.jpg">
+					<div class="col-12 col-sm-6">
+						<img src="assets/lettuce.jpeg" alt="lettuce" class="img-fluid card2">
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-12 col-sm-6">
+						<p>Hibiscus alright by me!</p>
+						<p>Barnable Boyd</p>
+					</div>
+					<div class="col-12 col-sm-6">
+						<img src="assets/hibiscus.webp" alt="hibiscus" class="img-fluid card2">
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<hr>
+
 		<div class="row">
+
+			<!-- Top Left quadrant -->
 			<div class="col">
 				<div class="row">
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/appleorange.webp" alt="apples and oranges" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Apples to Oranges</h3>
+							<p>A look into historical civil rights for oranges...</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/water.jpeg" alt="water" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Absorb Water!</h3>
+							<p>Water keeps you hydrated; are you absorbing it?</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="vr px-0 mx-2 h-100 align-self-center"></div>
+			<div class="vr px-0 mx-2 d-none d-md-block"></div>
 
+			<!-- Top right quadrant -->
 			<div class="col">
 				<div class="row">
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/hamhock.jpeg" alt="ham hock" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Tony Ham Hock!</h3>
+							<p>Is it just me, or is skating cooler than ever?...</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/dates.jpeg" alt="dates" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Date-ing Corner</h3>
+							<p>Date listens as Olive gives hot takes on Pizza's pairings...</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div></div>
 		<div class="row">
+			<!-- Bottom left quadrant -->
 			<div class="col">
 				<div class="row">
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/pickles.jpg" alt="taco" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+					<h3>Pickled Terror!</h3>
+					<p>Peter Pickle picked poor little Pepper, prison henny!...</p>
+					<p>Barnacle Boyd</p>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-12 col-sm-6">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/bird.jpg" alt="bird of paradise" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+					<h3>Bird Up! Again!</h3>
+					<p>If you know, you know, and you know know, and...</p>
+					<p>Barnacle Boyd</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="vr px-0 mx-2 h-100 align-self-center"></div>
+			<div class="vr px-0 mx-2 d-none d-md-block"></div>
 
+			<!-- Bottom right quadrant -->
 			<div class="col">
 				<div class="row">
 					<div class="col">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/bagels.jpg" alt="bagels" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Bagel Pandemic!</h3>
+							<p>Prices go down across the board, including the oven!...</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
 					<div class="col">
 						<div class="row">
-							<img src="assets/taco.jpg">
+							<img src="assets/mocha.jpeg" alt="mocha" class="img-fluid card1">
 						</div>
 						<div class="row">
-							Taco
+							<h3>Mocha Poses!</h3>
+							<p>Catch the model donning a NEW runway look for the premiere...</p>
+							<p>Barnacle Boyd</p>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<hr>
+		<div class="row text-center">
+			<p>Taco Times &copy; 2026</p>
 		</div>
 	</div>
 	
