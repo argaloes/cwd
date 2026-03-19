@@ -1,6 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+	<!--
+		Reflection:
+
+		I knew pretty quickly that I wanted to pursue The Taco Times for my Fake News project, as I felt
+		like it would allow for a level of whimsy I personally enjoy. 
+
+		When deciding what to do, I wanted to account for a layer of irony to help balance the intrinsically
+		heavy notion of news with a comedic relief in the form of food. I have some food puns and random
+		events interwovenwith some random foods that first came to my mind in a list. I took that idea
+		and ran with it as my focus for the type of emotion I want to elicit when viewing this website.
+
+		As a template, I took the liberty of copying one of the various grid designs hosted by The Atlantic,
+		a newspaper editorial. In Figma, I worked on top of that template to visualize the grids, then added
+		some pleasant colors reminiscent of food sites, e.g. Food Network. 
+
+		From there, I read through the Bootstrap book notes handed out in class, and read through the 
+		Bootstrap tutorial online for its grid system. That gave me the knowledge I needed to complete
+		this with the appropriate language. 
+
+		I started with three columns, then reoriented to two rows and restructured the grid blocks to
+		make everything fit. I had placeholder "Taco" texts in each spot
+
+		Then, I added the content. To do so, I cut each "Taco" in half to account for an image and the
+		corresponding texts.
+
+		I added the horizontal lines and vertical lins, the latter of which I relied on
+		Bootstrap's tutorial for. 
+
+		At this point, I went back and made card classes to categorize and resize the images for
+		consistency.
+
+		Once the PC layout was good, I worked tirelessly to get the responsive design downpacked.
+		The site is, as far as I am aware, now fully responsive! I achieved this by breaking columns down
+		related to the viewport.
+
+		Lastly, I made some various finishing touches to refine what was already there.
+	
+		This project ended up being very difficult for me, not because of the content but due to the
+		turnaround for it. I was swamped with projects and work for other classes, and it gave me 
+		no wiggle room to remotely start on this, so I started it at around 3am and kept at it until 
+		my internet cut out. This was an issue I could not commute to school with, because I was
+		working on my PC, so git push was the only way I had to bring it over to my laptop. 
+
+		After being stranded for a couple hours, the internet finally worked once I fixed the router.
+
+		This project definitely felt a bit more like being tossed into the deep end than the other
+		ones I have done up to this point, but I appreciate the necessity of being resourceful to
+		make better sense of what I needed to do and have done. 
+
+		The images used are fair use.
+		
+		I kept the taco image I held as a placeholder, and made it the favicon for the news site.
+
+		I hope you enjoy this Bootstrap implementation as much as I enjoy viewing the final product!
+	
+	-->
+
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +82,7 @@
 
 	<style>
 
-		// Orange background
+		/* Orange background */
 		body {
 			background-color: #FFECDB;
 		}
@@ -58,7 +116,7 @@
 			margin-bottom: 0%;
 		}
 
-		// Yellow backsplash
+		/* Yellow backsplash */
 		.bg-yel {
 			background-color: #FFF8E9;
 			height: 100vh;
@@ -69,7 +127,7 @@
 			z-index: -1;
 		}
 
-		// Bottom cards
+		/* Bottom cards */
 		.card1 {
 			width: 100%;
 			height: clamp(80px, 15vw, 300px);
@@ -77,21 +135,21 @@
 		}
 
 
-		// Top right cards
+		/* Top right cards */
 		.card2 {
 			width: 100%;
 			height: clamp(60px, 8vw, 150px);
 			object-fit: cover;
 		}
 
-		// Top left cards
+		/* Top left cards */
 		.card3 {
 			width: 100%;
 			height: clamp(100px, 18vw, 300px);
 			object-fit: cover;
 		}
 
-		// Main center card
+		/* Main center card */
 		.card4 {
 			width: 100%;
 			height: clamp(150px, 25vw, 400px);
@@ -149,7 +207,7 @@
 				<div class="row">
 					<h3 class="mt-2">Burrito SAVED!</h3>
 					<p>Rice performed maneuver to resuscitate Burrito...</p>
-					<p>Barnacle Boyd</p>
+					<p>Barnagle Boyd</p>
 				</div>
 				<hr>
 				<div class="row">
@@ -158,7 +216,7 @@
 				<div class="row">
 					<h3>That's a Wrap!</h3>
 					<p>King Burger establishes universal base income!?</p>
-					<p>Barnacle Boyd</p>
+					<p>Barnagle Boyd</p>
 				</div>
     		</div>
 
@@ -236,7 +294,7 @@
 						<div class="row">
 							<h3>Apples to Oranges</h3>
 							<p>A look into historical civil rights for oranges...</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnadle Boyd</p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-6">
@@ -246,7 +304,7 @@
 						<div class="row">
 							<h3>Absorb Water!</h3>
 							<p>Water keeps you hydrated; are you absorbing it?</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnadle Boyd</p>
 						</div>
 					</div>
 				</div>
@@ -264,7 +322,7 @@
 						<div class="row">
 							<h3>Tony Ham Hock!</h3>
 							<p>Is it just me, or is skating cooler than ever?...</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnatle Boyd</p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-6">
@@ -274,7 +332,7 @@
 						<div class="row">
 							<h3>Date-ing Corner</h3>
 							<p>Date listens as Olive gives hot takes on Pizza's pairings...</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnatle Boyd</p>
 						</div>
 					</div>
 				</div>
@@ -292,7 +350,7 @@
 						<div class="row">
 					<h3>Pickled Terror!</h3>
 					<p>Peter Pickle picked poor little Pepper, prison henny!...</p>
-					<p>Barnacle Boyd</p>
+					<p>Barnafle Boyd</p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-6">
@@ -302,7 +360,7 @@
 						<div class="row">
 					<h3>Bird Up! Again!</h3>
 					<p>If you know, you know, and you know know, and...</p>
-					<p>Barnacle Boyd</p>
+					<p>Barnafle Boyd</p>
 						</div>
 					</div>
 				</div>
@@ -320,7 +378,7 @@
 						<div class="row">
 							<h3>Bagel Pandemic!</h3>
 							<p>Prices go down across the board, including the oven!...</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnaple Boyd</p>
 						</div>
 					</div>
 					<div class="col">
@@ -330,7 +388,7 @@
 						<div class="row">
 							<h3>Mocha Poses!</h3>
 							<p>Catch the model donning a NEW runway look for the premiere...</p>
-							<p>Barnacle Boyd</p>
+							<p>Barnaple Boyd</p>
 						</div>
 					</div>
 				</div>
