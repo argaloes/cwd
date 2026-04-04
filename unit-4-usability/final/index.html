@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pinterest Usability Test Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Island+Moments&display=swap" rel="stylesheet">
+
+    <!-- 
+    
+      My team conducted an in-class usability test with Pinterest, and thus it became the subject
+      of my fourth project in the class. 
+
+      I had a decidedly more difficult time with this project than the prior ones, mostly due to the
+      timing and my aspiration to make the presentation of this study more polished.
+
+      Due to my subject matter being Pinterest, I aimed to have a more aesthetic showcase of the
+      site itself as a sort of harken to Pinterest's nature. To accomplish this, I played with opacity
+      and overlay blending on the site to make the many components on the site feel more seamless and
+      interconnected with the background design without taking away from the descriptive tone of the
+      messaging. 
+
+      I consulted various online tutorials for specifically Bootstrap-oriented side navbar
+      implementation, as I wanted to push the dynamism of the website further than just the
+      calculator implementation. Sources are credited as they appear in the script.
+
+      I also made sure to implement a safe responsive design to account for mobile interfaces. 
+
+      The most difficult aspect of the site that I still couldn't exactly quash out in the design 
+      is font sizing; the responsive design was quite volatile for this assignment with regard to
+      this aspect. I at least feel somewhat more competent with clamping than I had in the past.
+      
+      I implemented the SUS Score using select fields to streamline the process, and the score
+      dynamically changes on-input. 
+
+      Lastly, I made a conscious effort to be more detail oriented with the comments given.
+
+      Overall, this was a constructive project, and I am content with how this came out.
+    
+    -->
+
+    <style>
+
+      body {
+        background-color: #f7f1f3;
+        background-image: url('assets/floral_bg.jpg');
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+
+      h3 {
+        font-family: "Inknut Antiqua", serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      p {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 400;
+        font-size: clamp(1.1rem, 1.5vw, 2rem);
+        font-style: normal;
+        margin: 0;
+      }
+
+      .cat_text {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.1rem, 1.5vw, 1.2rem);
+        margin: 0;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: "Island Moments", cursive;
+        font-weight: 700;
+        font-size: clamp(2rem, 8vw, 6rem);
+        font-style: normal;
+      }
+
+      .card_header {
+        width: 100%;
+        height: 150px;
+        background-color: #eaacc14a;
+        border-radius: 25px;
+      }
+
+      .card_body {
+        width: 100%;
+        height: 225px;
+        background-color: #c09aa76b;
+        border-radius: 25px;
+        margin-top: 25px;
+      }
+
+      .card_img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        border-radius: 25px;
+        object-fit: cover;
+        margin-left: 0;
+      }
+
+      .card_time {
+        width: 100%;
+        height: 50px;
+        background-color: #ea65947e;
+        border-radius: 25px;
+        margin-left: 0;
+      }
+
+      .card_easy {
+        width: 100%;
+        height: 50px;
+        background-color: #89c1a477;
+        border-radius: 25px;
+        margin-left: 0;
+      }
+
+      .card_medium {
+        width: 100%;
+        height: 50px;
+        background-color: #e4a87a7d;
+        border-radius: 25px;
+        margin-left: 0;
+      }
+
+      .card_hard {
+        width: 100%;
+        height: 50px;
+        background-color: #f45d5d76;
+        border-radius: 25px;
+        margin-left: 0;
+      }
+
+      .card_errors {
+        width: 100%;
+        height: 50px;
+        background-color: #ff252579;
+        border-radius: 25px;
+        margin-left: 0;
+      }
+
+      .nav-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1050;
+        padding: 6px 8px;
+      }
+
+      .offcanvas {
+        background-color: #fff9fbe5;
+        background-image: url('assets/floral_bg.jpg');
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        width: min(280px, 85vw);
+      }
+
+      .offcanvas-header h1 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+      }
+
+      .nav-link {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        color: #6b3a4d;
+        border-radius: 15px;
+        padding: 10px 15px;
+        margin-bottom: 5px;
+        transition: background-color 0.2s;
+      }
+
+      .nav-link:hover {
+        background-color: #eaacc14a;
+        color: #3d1f2d;
+      }
+
+    </style>
+  
+  </head>
+  <body>
+
+    <!-- Sidenav Button -->
+    <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidenav">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6b3a4d" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </button>
+
+    <!-- 
+
+    Offcanvas Sidenav
+    
+    Documentation referenced:
+    https://getbootstrap.com/docs/5.2/components/offcanvas/
+    https://getbootstrap.com/docs/5.2/components/offcanvas/#events
+    
+    -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidenav" aria-labelledby="sidenavLabel">
+      <div class="offcanvas-header">
+        <h1 id="sidenavLabel">Tasks</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="d-flex flex-column">
+          <a class="nav-link" href="#task1">1. Create a Beagle Board</a>
+          <a class="nav-link" href="#task2">2. Change Privacy Settings</a>
+          <a class="nav-link" href="#task3">3. Search & Save Pictures</a>
+          <a class="nav-link" href="#task4">4. Find & Follow a Board</a>
+          <a class="nav-link" href="#task5">5. Create a Collage</a>
+          <a class="nav-link" href="#sus">SUS Score</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container mt-5 justify-content-center align-items-center">
+
+      <!-- The following is the structure for each of the five steps, using step one as the example: -->
+
+      <!-- Title -->
+      <div class="row mb-5 text-center card_header d-flex align-items-center justify-content-center">
+        <h1>Pinterest.com Usability Test Results</h1>
+      </div>
+
+      <!-- Task 1 -->
+      <div id="task1" class="my-3">
+        <div class="row">
+
+          <!-- Left Col -->
+          <div class="col-12 col-md-6">
+
+            <!-- Step Direction -->
+            <div class="row">
+              <div class="card_header d-flex align-items-center ps-3">
+                <h3>1. Create a public Pinterest board named "Beagle Board".</h3>
+              </div>
+            </div>
+
+            <!-- Step Description -->
+            <div class="row">
+              <div class="card_body overflow-auto p-3">
+                <p>
+                  The user initially found a help page focused on the mobile app. 
+                  It was later discovered that an account is required to create a board. 
+                  The user navigated through several pages before locating the board creation page, showing considerable confusion throughout the task.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Col -->
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+            
+            <!-- Step Image Reference -->
+            <div class="row w-100 px-3">
+              <img class="card_img" src="assets/one.png" alt="Creation of Beagle board by participant.">
+              
+              <!-- Step Time Badge for participant -->
+              <div class="col-12 col-md-4">
+                <div class="card_time mt-4 d-flex justify-content-center align-items-center text-nowrap">
+                  <p class="cat_text">2 min 35 sec</p>
+                </div>
+
+              <!-- Step Difficulty Badge for participant -->
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_hard mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Hard</p>
+                </div>
+
+              <!-- Step Errors Badge for participant -->
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_errors mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Errors: 3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="border opacity-75">
+
+      <!-- Task 2 -->
+      <div id="task2" class="my-3">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="card_header d-flex align-items-center ps-3">
+                <h3>2. Change the privacy settings of the Beagle Board to be a private board.</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card_body overflow-auto p-3">
+                <p>
+                  This task was straightforward since the user was already within the board. 
+                  Making the board private required only a simple checkbox via the edit menu. 
+                  Inviting a collaborator was equally simple: the user clicked an invite button next to a user's name. 
+                  No errors were made.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+            <div class="row w-100 px-3">
+              <img class="card_img" src="assets/two.png" alt="Pinterest board privacy toggle.">
+              <div class="col-12 col-md-4">
+                <div class="card_time mt-4 d-flex justify-content-center align-items-center text-nowrap">
+                  <p class="cat_text">1 min 10 sec</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_easy mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Easy</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_errors mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Errors: 0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border opacity-75">
+
+      <!-- Task 3 -->
+      <div id="task3" class="my-3">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="card_header d-flex align-items-center ps-3">
+                <h3>3. Search for Beagle pictures on Pinterest and save some to the Beagle Pinterest Board.</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card_body overflow-auto p-3">
+                <p>
+                  The search bar was prominently displayed at the top of the screen, making it easy to locate and use. 
+                  The user completed this task without any notable issues.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+            <div class="row w-100 px-3">
+              <img class="card_img" src="assets/three.png" alt="Beagle pics participant found during Pinterest search.">
+              <div class="col-12 col-md-4">
+                <div class="card_time mt-4 d-flex justify-content-center align-items-center text-nowrap">
+                  <p class="cat_text">0 min 45 sec</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_easy mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Easy</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_errors mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Errors: 0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border opacity-75">
+
+      <!-- Task 4 -->
+      <div id="task4" class="my-3">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="card_header d-flex align-items-center ps-3">
+                <h3>4. Search for a Beagle board and follow that board.</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card_body overflow-auto p-3">
+                <p>
+                  The user initially saved a pin to the default board before discovering a dropdown menu to select a specific board. 
+                  Once the dropdown was found, saving to the correct board was straightforward.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+            <div class="row w-100 px-3">
+              <img class="card_img" src="assets/four.png" alt="Beagle board participant chose to follow.">
+              <div class="col-12 col-md-4">
+                <div class="card_time mt-4 d-flex justify-content-center align-items-center text-nowrap">
+                  <p class="cat_text">1 min 50 sec</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_medium mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Medium</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_errors mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Errors: 1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border opacity-75">
+
+      <!-- Task 5 -->
+      <div id="task5" class="my-3">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="card_header d-flex align-items-center ps-3">
+                <h3>5. Create a collage using pictures from the Beagle board.</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card_body overflow-auto p-3">
+                <p>
+                  Finding the collage feature took some effort, though it was located within the same area as board creation. 
+                  Prior experience creating a board helped the user orient themselves. 
+                  There was initial confusion about adding pins to the collage, but the system's intuitive design allowed the user to work through it. 
+                  Naming and saving the collage was completed successfully, though the user noted that saving was slightly unclear at first.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+            <div class="row w-100 px-3">
+              <img class="card_img" src="assets/five.png" alt="Pinterest Beagle collage designed by participant.">
+              <div class="col-12 col-md-4">
+                <div class="card_time mt-4 d-flex justify-content-center align-items-center text-nowrap">
+                  <p class="cat_text">3 min 20 sec</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_hard mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Hard</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card_errors mt-4 d-flex justify-content-center align-items-center overflow-auto text-nowrap">
+                  <p class="cat_text">Errors: 2</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border opacity-75">
+
+      <!-- SUS Score - changed to selection dropdown for convenience -->
+      <div id="sus" class="row mt-5 mb-5 text-center card_header d-flex align-items-center justify-content-center">
+        <h1>SUS Score</h1>
+      </div>
+
+      <form action="#" id="stat_form">
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q1" id="q1" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q1" class="form-label">
+              <p>I think that I would like to use this system frequently.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q2" id="q2" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q2" class="form-label">
+              <p>I found the system unnecessarily complex.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q3" id="q3" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q3" class="form-label">
+              <p>I thought the system was easy to use.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q4" id="q4" required>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q4" class="form-label">
+              <p>I think that I would need the support of a technical person to be able to use this system.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q5" id="q5" required>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q5" class="form-label">
+              <p>I found the various functions in this system were well integrated.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q6" id="q6" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q6" class="form-label">
+              <p>I thought there was too much inconsistency in this system.</p>
+              </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q7" id="q7" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q7" class="form-label">
+              <p>I would imagine that most people would learn to use this system very quickly.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q8" id="q8" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q8" class="form-label">
+              <p>I found the system very cumbersome to use.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q9" id="q9" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q9" class="form-label">
+              <p>I felt very confident using the system.</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="my-2 row">
+          <div class="col-2">
+            <select class="form-select" name="q10" id="q10" required>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="col-10">
+            <label for="q10" class="form-label">
+              <p>I needed to learn a lot of things before I could get going with this system.</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- Final Score -->
+        <div class="my-2 row">
+          <div class="col-12">
+            <p><span class="form-label">SUS Score: <strong id="answer">--</strong></span></p>
+          </div>
+        </div>
+      </form>
+
+      <hr class="border opacity-75">
+
+      <!-- Footer -->
+      <footer class="justify-content-center align-items-center text-center">
+        <p>&copy; 2026</p>
+      </footer>
+
+    </div>
+
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  
+    <!-- 
+    
+    Scroll js implementation
+
+    Documentation referenced:
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+    -->
+    <script>
+      const sidenav = document.getElementById('sidenav');
+      const navBtn = document.querySelector('.nav-btn');
+
+      // hide/show button when offcanvas opens and closes
+      sidenav.addEventListener('show.bs.offcanvas', () => {
+        navBtn.style.display = 'none';
+      });
+
+      sidenav.addEventListener('hidden.bs.offcanvas', () => {
+        navBtn.style.display = 'block';
+      });
+
+      // nav link click handler
+      document.querySelectorAll('#sidenav .nav-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          const offcanvas = bootstrap.Offcanvas.getInstance(sidenav);
+          offcanvas.hide();
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        });
+      });
+    </script>
+
+    <!-- SUS Calculation logic -->
+    <script>
+      function sus_calculation() {
+        const form = document.querySelector("#stat_form");
+
+        let q1 = Number(form.q1.value);
+        let q2 = Number(form.q2.value);
+        let q3 = Number(form.q3.value);
+        let q4 = Number(form.q4.value);
+        let q5 = Number(form.q5.value);
+        let q6 = Number(form.q6.value);
+        let q7 = Number(form.q7.value);
+        let q8 = Number(form.q8.value);
+        let q9 = Number(form.q9.value);
+        let q10 = Number(form.q10.value);
+
+        q1 -= 1; q3 -= 1; q5 -= 1; q7 -= 1; q9 -= 1;
+        q2 = 5 - q2; q4 = 5 - q4; q6 = 5 - q6; q8 = 5 - q8; q10 = 5 - q10;
+
+        let answer = (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10) * 2.5;
+
+        document.getElementById('answer').textContent = answer;
+      }
+
+      // Initial score
+      sus_calculation();
+
+      // Score re-run on-change of select fields
+      document.querySelector("#stat_form").addEventListener('change', sus_calculation);
+    </script>
+  </body>
+</html>
