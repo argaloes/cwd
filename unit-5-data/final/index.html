@@ -523,6 +523,51 @@
 
       .z1 { position: relative; z-index: 1; }
 
+      /* Responsive */
+      @media (max-width: 767px) {
+        .hero {
+          padding: 3.5rem 1rem 3rem;
+          min-height: 60vh;
+        }
+
+        .intro_card {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .story_section {
+          padding: 3rem 0;
+        }
+
+        .closing_card {
+          padding: 2rem 1.25rem;
+        }
+
+        .closing_card::after {
+          font-size: 3rem;
+          right: 1rem;
+          bottom: 0.75rem;
+        }
+
+        .fact_num {
+          font-size: clamp(2rem, 10vw, 3rem);
+        }
+      }
+
+      @media (max-width: 575px) {
+        .hero h1 {
+          font-size: clamp(2.8rem, 13vw, 5rem);
+        }
+
+        .story_section h2 {
+          font-size: clamp(1.3rem, 5vw, 1.8rem);
+        }
+
+        .pill_row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
     </style>
   </head>
 
@@ -589,10 +634,16 @@
       <p class="hero_sub">
         Twenty years of villager design, examined through the lens of gender, species, and social archetypes.
       </p>
-      <div class="row">
-        <img class="col mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
-        <img class="col mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
-        <img class="col mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
+      <div class="row g-2 justify-content-center my-2">
+        <div class="col-4 col-sm-3 col-md-2">
+          <img class="img-fluid mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
+        </div>
+        <div class="col-4 col-sm-3 col-md-2">
+          <img class="img-fluid mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
+        </div>
+        <div class="col-4 col-sm-3 col-md-2">
+          <img class="img-fluid mx-auto d-block" src="assets/bob.gif" alt="Dancing purple cat.">
+        </div>
       </div>
       <div class="scroll_cue" aria-hidden="true">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -629,7 +680,7 @@
       </div>
     </div>
 
-    <img class="mx-auto d-block" src="assets/blanca.gif" alt="Dancing white, faceless cat.">
+    <img class="mx-auto d-block img-fluid" src="assets/blanca.gif" alt="Dancing white, faceless cat." style="max-width:220px;">
 
 
     <hr class="ac_rule">
@@ -836,11 +887,11 @@
             Now, let's see the latter chart side-by-side with our prior graph of gender distribution.
           </p>
 
-          <div class="row">
+          <div class="row g-3">
 
             <!-- Graph -->
 
-            <div class="col">
+            <div class="col-12 col-md-6">
               <div class="chart_body cb_gold mt-4">
                 <p class="chart_label">Personality type, recolored</p>
                 <div class="flourish-embed flourish-chart" data-src="visualisation/28728406"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/28728406/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
@@ -849,7 +900,7 @@
 
             <!-- Graph -->
 
-            <div class="col">
+            <div class="col-12 col-md-6">
               <div class="chart_body cb_sky mt-4">
                 <p class="chart_label">Gender makeup of new villagers per game, 2001–2020</p>
                 <div class="flourish-embed flourish-chart" data-src="visualisation/28728181"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/28728181/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
@@ -940,14 +991,14 @@
         </div>
 
         <div class="row align-items-center g-3">
-          <div class="col">
-            <img class="img-fluid" src="assets/apollo.png" alt="Eagle looksmaxxing">
+          <div class="col-6">
+            <img class="img-fluid mx-auto d-block" src="assets/apollo.png" alt="Eagle looksmaxxing">
           </div>
-          <div class="col">
-            <img class="img-fluid" src="assets/apollo_movie.png" alt="Eagle mogging">
+          <div class="col-6">
+            <img class="img-fluid mx-auto d-block" src="assets/apollo_movie.png" alt="Eagle mogging">
           </div>
         </div>
-        <img class="d-block" src="assets/apollo_drink.gif" alt="Eagle drinking coffee">
+        <img class="d-block mx-auto img-fluid mt-3" src="assets/apollo_drink.gif" alt="Eagle drinking coffee" style="max-width:220px;">
       </div>
 
       <p class="mt-3 text-center">
